@@ -1,5 +1,7 @@
 {
   "name": "bom_negocio",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

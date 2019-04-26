@@ -2,3 +2,22 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+.anuncios {
+  margin: 20px;
+}
+
+.anuncios > ion-label {
+  
+}
+
+.item_anuncio ion-label {
+  margin: 50px 20px;
+  text-transform: uppercase;
+}
+
+.item_anuncio {
+  margin: 15px 0px 10px;
+  color: #555555;
+  lines: none;
+}
