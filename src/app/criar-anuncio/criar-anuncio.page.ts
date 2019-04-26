@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Anuncio } from '../models/anuncio';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AnuncioService } from '../services/anuncio.service';
+import { threadId } from 'worker_threads';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-criar-anuncio',
@@ -9,12 +13,18 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class CriarAnuncioPage implements OnInit {
 
-  novo_anuncio: Anuncio;
+  // novo_anuncio: Anuncio;
   foto:string = "../../assets/img/default.jpg";
+  formulario: FormGroup;
 
-  constructor(private camera:Camera) { }
+  constructor(private camera:Camera, private formBuilder:FormBuilder, private anuncio:AnuncioService, private router:Router) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      titulo: ["Título do anúncio", [Validators.required]],
+      descricao: ["Descrição do anúncio", [Validators.required]],
+      valor: ["R$ 100.000,00", [Validators.required]]
+    });
   }
 
   tirarFoto() {
@@ -35,6 +45,15 @@ export class CriarAnuncioPage implements OnInit {
     }, (err) => {
       alert("Erro");
     });
+  }
+
+  criarAnuncio() {
+    let dadosAnuncio = this.formulario.value;
+    dadosAnuncio.imagem = this.foto;
+    this.anuncio.criar(dadosAnuncio).then(() => {
+      alert("Seu anúncio foi criado com sucesso!");
+      this.router.navigateByUrl('home');
+    }).catch((erro) => alert(erro));
   }
  
 

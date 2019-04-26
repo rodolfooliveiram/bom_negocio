@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Anuncio } from '../models/anuncio';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -15,4 +16,19 @@ export class HomePage {
     new Anuncio(4, "Imagem", "Título do Anúncio 4", "Descrição do Anúncio", "R$ 400.000,00"),
     new Anuncio(5, "Imagem", "Título do Anúncio 5", "Descrição do Anúncio", "R$ 500.000,00"),
   ]
+
+  constructor(private toastController: ToastController) { }
+
+  ngOnInit() {
+    this.presentToast();
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Bem-vindo e bons negócios!',
+      position: 'top',
+      duration: 3000
+    });
+    toast.present();
+  }
 }
