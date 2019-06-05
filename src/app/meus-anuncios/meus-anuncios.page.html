@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-menu-button></ion-menu-button>
+    <ion-title>meus-anuncios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list class="anuncios">
+        <ion-label>Meus Anúncios</ion-label>
+        <ion-item class="item_anuncio" lines="none" color="primary" *ngFor="let anuncio of listaAnuncios" style="margin-bottom: 20px;">
+          <ion-label [routerLink]="['/anuncio-detalhes', anuncio.id]">{{ anuncio.titulo }}</ion-label>
+          <ion-icon (click)="excluirAnuncio(anuncio.id)" name="close"></ion-icon>
+          <ion-icon [routerLink]="['/editar-anuncio', anuncio.id]" name="create"></ion-icon>
+        </ion-item>
+      </ion-list>
+
+</ion-content>

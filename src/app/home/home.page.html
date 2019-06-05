@@ -25,7 +25,7 @@
 
     <ion-list class="anuncios">
       <ion-label>Anúncios</ion-label>
-      <ion-item class="item_anuncio" lines="none" color="primary" *ngFor="let anuncio of anuncios">
+      <ion-item [routerLink]="['/anuncio-detalhes', anuncio.id]" class="item_anuncio" lines="none" color="primary" *ngFor="let anuncio of listaAnuncios">
         <ion-label>{{ anuncio.titulo }}</ion-label>
       </ion-item>
     </ion-list>

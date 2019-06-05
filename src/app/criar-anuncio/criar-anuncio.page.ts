@@ -3,7 +3,6 @@ import { Anuncio } from '../models/anuncio';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AnuncioService } from '../services/anuncio.service';
-import { threadId } from 'worker_threads';
 import { Router } from '@angular/router';
 
 @Component({
@@ -47,14 +46,24 @@ export class CriarAnuncioPage implements OnInit {
     });
   }
 
+  // criarAnuncio() {
+  //   let dadosAnuncio = this.formulario.value;
+  //   dadosAnuncio.imagem = this.foto;
+  //   this.anuncio.criar(dadosAnuncio).then(() => {
+  //     alert("Seu anúncio foi criado com sucesso!");
+  //     this.router.navigateByUrl('home');
+  //   }).catch((erro) => alert(erro));
+  // }
+
   criarAnuncio() {
-    let dadosAnuncio = this.formulario.value;
+
+    let dadosAnuncio = this.formulario.value;    
     dadosAnuncio.imagem = this.foto;
-    this.anuncio.criar(dadosAnuncio).then(() => {
-      alert("Seu anúncio foi criado com sucesso!");
-      this.router.navigateByUrl('home');
-    }).catch((erro) => alert(erro));
-  }
- 
+
+    this.anuncio.criar(dadosAnuncio)
+
+    alert('Anúncio criado com sucesso!');
+    this.router.navigateByUrl('/home');
+  } 
 
 }

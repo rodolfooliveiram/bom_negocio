@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from '../services/usuario.service';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -23,10 +24,26 @@ export class CadastrarUsuarioPage implements OnInit {
   }
 
   efetuarCadastro() {
-    this.usuario.cadastrar(this.formulario.get('nome').value, this.formulario.get('email').value, this.formulario.get('senha').value).then(() => {}).catch(() => {
-      alert('Erro ao cadastrar usuário.');
+    // let db = firebase.database();
+    // let UID = db.ref('usuarios').push().key; //Id unico
+    // db.ref('usuarios').child(UID).child('nome').set(this.formulario.get('nome').value);
+    // db.ref('usuarios').child(UID).child('email').set(this.formulario.get('email').value);
+    // db.ref('usuarios').child(UID).child('senha').set(this.formulario.get('senha').value);
+
+    firebase.auth().createUserWithEmailAndPassword(this.formulario.get('email').value, this.formulario.get('senha').value)
+    .then(usuarioLogado => {
+      alert('Usuário cadastrado com sucesso!');
+      this.router.navigateByUrl('login')
+    })
+    .catch(erro => {
+      alert("Erro ao tentar se Cadastrar!")
     });
-    this.router.navigateByUrl('login');
+
+
+    // this.usuario.cadastrar(this.formulario.get('nome').value, this.formulario.get('email').value, this.formulario.get('senha').value).then(() => {}).catch(() => {
+    //   alert('Erro ao cadastrar usuário.');
+    // });
+    // this.router.navigateByUrl('login');
   }
 
 }

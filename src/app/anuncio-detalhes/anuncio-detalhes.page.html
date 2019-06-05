@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+    <ion-title>anuncio-detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-img class="imgcard" src="{{anuncioObjeto.imagem}}"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-title>{{anuncioObjeto.titulo}}</ion-card-title>
+      {{anuncioObjeto.descricao}}
+    </ion-card-content>
+
+    <h4>{{anuncioObjeto.valor}}</h4>
+
+    <ion-button expand="full" fill="outline" shape="round" (click)="comprar()"> Contato </ion-button>
+  </ion-card>
+
+</ion-content>

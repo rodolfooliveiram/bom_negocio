@@ -1,7 +1,7 @@
 export class Anuncio {
 
     constructor(
-        public id?:number, 
+        public id?:string, 
         public imagem?:string, 
         public titulo?:string, 
         public descricao?:string, 

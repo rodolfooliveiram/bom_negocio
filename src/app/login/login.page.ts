@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacaoGuard } from '../guards/autenticacao.guard';
 import { UsuarioService } from '../services/usuario.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -25,14 +26,26 @@ export class LoginPage implements OnInit {
 
   async efetuarLogin() {
 
-    let logou = await this.usuario.logar(this.formulario.get('email').value, this.formulario.get('senha').value);
-    if(logou) {
-      AutenticacaoGuard.podeAcessar = true;
-      this.router.navigateByUrl('home');
-    } else {
-      this.msg = "Login ou senha incorreto!";
-      alert("Login ou senha incorreto!");
-    }
+    firebase.auth().signInWithEmailAndPassword(this.formulario.get('email').value, this.formulario.get('senha').value)
+    .then(usuarioLogado => {
+      
+       AutenticacaoGuard.podeAcessar = true;
+        this.router.navigateByUrl('/home');
+
+    })
+    .catch(erro => {
+      this.msg = "E-mail ou Senha Invalidos!";
+    });
+  
+
+    // let logou = await this.usuario.logar(this.formulario.get('email').value, this.formulario.get('senha').value);
+    // if(logou) {
+    //   AutenticacaoGuard.podeAcessar = true;
+    //   this.router.navigateByUrl('home');
+    // } else {
+    //   this.msg = "Login ou senha incorreto!";
+    //   alert("Login ou senha incorreto!");
+    // }
 }
 
   
