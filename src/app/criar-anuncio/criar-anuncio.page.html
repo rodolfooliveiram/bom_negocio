@@ -1,13 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>criar_anuncio</ion-title>
+    <ion-title>Criar Anúncio</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-
-  <h1>Criar Anúncio</h1>
+<ion-content padding>
 
   <div id="div1">
     <div id="div2">
@@ -39,13 +36,13 @@
 
       <ion-row>
         <ion-col size="6">
-          <ion-button [routerLink]="['/consultar-produtos']" expand="full">
-            CANCELAR
+          <ion-button [routerLink]="['/home']" shape="round" fill="outline" expand="full">
+            Cancelar
           </ion-button>
         </ion-col>
 
         <ion-col size="6">
-          <ion-button (click)="criarAnuncio()"   expand="full">
+          <ion-button (click)="criarAnuncio()" shape="round" expand="full">
             Criar
           </ion-button>
         </ion-col>

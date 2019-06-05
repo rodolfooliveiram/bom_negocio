@@ -1,21 +1,24 @@
-ion-card{
-    --background: rgb(243, 241, 237);
+ion-card {
+    box-shadow: none;
 }
 
-.imgcard{
-    border: 10px;
+ion-card-header {
+    padding-left: 0;
+}
+
+ion-card-content {
+    padding-left: 0;
+}
+
+.anuncio-img {
+    display: block;
     width: 100%;
-    height: 100%;
 }
 
-h1{
-    text-align: center;
-    color: white;
-}
-
-h4{
-    text-align: center;
+h4 {
     font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 50px;
 }
 
 #banner{

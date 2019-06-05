@@ -34,7 +34,7 @@ export class AppComponent {
     },
     {
       title: 'Sair',
-      url: '/home',
+      url: '/login',
       icon: 'arrow-forward'
     }
   ];

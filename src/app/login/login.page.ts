@@ -36,18 +36,20 @@ export class LoginPage implements OnInit {
     .catch(erro => {
       this.msg = "E-mail ou Senha Invalidos!";
     });
-  
+  }
 
-    // let logou = await this.usuario.logar(this.formulario.get('email').value, this.formulario.get('senha').value);
-    // if(logou) {
-    //   AutenticacaoGuard.podeAcessar = true;
-    //   this.router.navigateByUrl('home');
-    // } else {
-    //   this.msg = "Login ou senha incorreto!";
-    //   alert("Login ou senha incorreto!");
-    // }
-}
+  authGoogle(){
 
-  
+    var provider = new firebase.auth.GoogleAuthProvider();
 
+    console.log("AQUI")
+    //============= WEB ================/
+     firebase.auth().signInWithPopup(provider).then(resultado => {
+       var token = resultado.credential.providerId;
+       var usuario = resultado.user;
+     }).catch(erro => {
+       alert("Erro: " + erro);
+     });
+    
+  }
 }

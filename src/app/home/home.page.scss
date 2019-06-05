@@ -1,23 +1,28 @@
-.welcome-card ion-img {
-  max-height: 35vh;
-  overflow: hidden;
+#menu {
+  color: #7a69db;
 }
 
-.anuncios {
-  margin: 20px;
+#logo {
+  max-width: 30%;
+  height: 85%;
+  position: fixed; 
+  top: 5px; 
+  left: 50%; 
+  margin-right: -50%; 
+  transform: translate(-50%, -0%) 
 }
 
-.anuncios > ion-label {
-  
+.anuncio-img {
+  display: block;
+  width: 100%;
 }
 
-.item_anuncio ion-label {
-  margin: 50px 20px;
-  text-transform: uppercase;
+h2 {
+  color: #7a69db;
 }
 
-.item_anuncio {
-  margin: 15px 0px 10px;
-  color: #555555;
-  lines: none;
+#banner {
+  margin: 0%;
+  width: 100%;
+  height: 70px;
 }

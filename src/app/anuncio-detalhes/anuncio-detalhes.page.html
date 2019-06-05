@@ -3,24 +3,30 @@
       <ion-buttons slot="start">
           <ion-back-button defaultHref="home"></ion-back-button>
       </ion-buttons>
-    <ion-title>anuncio-detalhes</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
   <ion-card>
-    <ion-card-header>
-      <ion-img class="imgcard" src="{{anuncioObjeto.imagem}}"></ion-img>
+
+    <ion-card-header>      
+        <ion-card-title>{{anuncioObjeto.titulo}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <ion-card-title>{{anuncioObjeto.titulo}}</ion-card-title>
+
+    <ion-img class="anuncio-img" src="{{anuncioObjeto.imagem}}"></ion-img>
+    
+    <ion-card-content>      
       {{anuncioObjeto.descricao}}
     </ion-card-content>
 
     <h4>{{anuncioObjeto.valor}}</h4>
 
-    <ion-button expand="full" fill="outline" shape="round" (click)="comprar()"> Contato </ion-button>
+    <ion-button expand="full" shape="round"> Chat </ion-button>
   </ion-card>
+
+  <div>
+      <ion-img id="banner" src="../../assets/img/uber.jpg"></ion-img>
+  </div>
 
 </ion-content>

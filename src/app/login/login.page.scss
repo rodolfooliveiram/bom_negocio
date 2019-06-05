@@ -1,3 +1,53 @@
 #msg {
     text-align: center;
 }
+
+#container-login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-form {
+    width: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #7a69db;
+}
+
+ion-list {
+    --ion-item-background: rgba(66, 29, 29, 0);
+    border-radius: 5%;
+}
+
+ion-item {
+    --ion-item-background: rgba(255, 255, 255, 0.3);
+}
+
+.label {
+    font-size: 23px;
+    font-weight: bold;
+    color: #7a69db;
+}
+
+#logo {
+    max-width: 60%; 
+    position: fixed; 
+    top: 15px; 
+    left: 50%; 
+    margin-right: -50%; 
+    transform: translate(-50%, -0%) 
+}
+
+#google {
+    height: 25px;
+    width: 25px;
+    margin-left: 12px;
+}
+
+#google-btn {
+  text-align: center;
+}
